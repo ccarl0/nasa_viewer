@@ -8,6 +8,11 @@
              x:DataType="viewmodels:PostViewModel"
              Title="NASA VIEWER">
 
+    <ContentPage.BindingContext>
+        <viewmodels:PostViewModel/>
+    </ContentPage.BindingContext>
+
+    
     <ContentPage.Content>
         <FlexLayout Direction="Column" TranslationY="-50">
 
@@ -21,7 +26,8 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
 
-
+                    <Button Text="Update" Command="{Binding UpdateFeedCommand}"/>
+                    
                     <ScrollView Grid.Row="2">
                         <Grid>
                             <CollectionView ItemsSource="{Binding NasaAPODs}">
@@ -47,7 +53,7 @@
                                                 <RowDefinition Height="32"></RowDefinition>
                                             </Grid.RowDefinitions>
 
-                                            <Label Text="Titolo"
+                                            <Label Text="{Binding Title}"
                                         Grid.Row="0"
                                         Grid.Column="1"
                                         Grid.ColumnSpan="2"
@@ -65,7 +71,7 @@
                                         Source="dotnet_bot.png"
                                         Aspect="AspectFill"/>
 
-                                            <Label Text="11/02/2005"
+                                            <Label Text="{Binding Date}"
                                         Grid.Row="2"
                                         Grid.Column="0"
                                            Grid.ColumnSpan="2"
