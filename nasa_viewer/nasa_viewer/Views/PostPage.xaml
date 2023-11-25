@@ -12,10 +12,8 @@
         <viewmodels:PostViewModel/>
     </ContentPage.BindingContext>
 
-    
     <ContentPage.Content>
         <FlexLayout Direction="Column" TranslationY="-50">
-
             <ScrollView>
                 <Grid Padding="0">
                     <Grid.ColumnDefinitions>
@@ -27,7 +25,7 @@
                     </Grid.RowDefinitions>
 
                     <Button Text="Update" Command="{Binding UpdateFeedCommand}"/>
-                    
+
                     <ScrollView Grid.Row="2">
                         <Grid>
                             <CollectionView ItemsSource="{Binding NasaAPODs}">
@@ -54,16 +52,16 @@
                                             </Grid.RowDefinitions>
 
                                             <Label Text="{Binding Title}"
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        Grid.ColumnSpan="2"
-                                        HorizontalOptions="Start"
-                                        VerticalOptions="Center"
-                                        TextColor="White"
-                                           BackgroundColor="Transparent"
-                                        FontSize="18"
-                                        Padding="2,1"
-                                        ZIndex="1"/>
+                                                   Grid.Row="0"
+                                                   Grid.Column="1"
+                                                   Grid.ColumnSpan="2"
+                                                   HorizontalOptions="Start"
+                                                   VerticalOptions="Center"
+                                                   TextColor="White"
+                                                   BackgroundColor="Transparent"
+                                                   FontSize="18"
+                                                   Padding="2,1"
+                                                   ZIndex="1"/>
 
                                             <local:AsyncImage
                                                 Grid.Row="1"
@@ -72,15 +70,15 @@
                                                 Aspect="AspectFill"/>
 
                                             <Label Text="{Binding Date}"
-                                        Grid.Row="2"
-                                        Grid.Column="0"
-                                           Grid.ColumnSpan="2"
-                                        Padding="2"
-                                        HorizontalOptions="Start"
-                                           VerticalOptions="Center"
-                                           BackgroundColor="Transparent"
-                                        TextColor="White"
-                                        FontSize="15"/>
+                                                   Grid.Row="2"
+                                                   Grid.Column="0"
+                                                   Grid.ColumnSpan="2"
+                                                   Padding="2"
+                                                   HorizontalOptions="Start"
+                                                   VerticalOptions="Center"
+                                                   BackgroundColor="Transparent"
+                                                   TextColor="White"
+                                                   FontSize="15"/>
                                         </Grid>
                                     </DataTemplate>
                                 </CollectionView.ItemTemplate>
