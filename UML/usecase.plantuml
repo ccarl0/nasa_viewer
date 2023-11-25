@@ -1,0 +1,18 @@
+@startuml
+skinparam actorStyle awesome
+left to right direction
+actor "Nasa API" as API
+actor "Utente" as user
+rectangle {
+  usecase "a" as UC1
+  usecase "b" as UC2
+  usecase "c" as UC3
+  usecase "Aggiorna dati" as UC4
+}
+
+user --> UC1
+user --> UC2
+user --> UC3
+API --> UC4
+
+@enduml
