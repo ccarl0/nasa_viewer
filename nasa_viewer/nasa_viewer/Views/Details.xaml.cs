@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Storage;
+using CommunityToolkit.Maui.Alerts;
 using nasa_viewer.Models;
 using System.Net;
 using System.Text.RegularExpressions;
@@ -29,14 +31,17 @@ public partial class Details : ContentPage
         Cr.Text = nasaAPODRoot.Copyright;
     }
 
-    private async void DoubleTapAsync(object sender, TappedEventArgs e)
+    private async Task DoubleTapAsync(object sender, TappedEventArgs e)
     {
 
         string sanitizedFileName = SanitizeFileName(name);
 
-        string folderPath = Path.Combine(Microsoft.Maui.Controls.PlatformConfiguration.Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "NasaViewer");
+#if __ANDROID__
+string folderPath = Path.Combine(
+    Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath,
+    "NasaViewer");
 
-        if (!Directory.Exists(folderPath))
+    if (!Directory.Exists(folderPath))
         {
             Directory.CreateDirectory(folderPath);
         }
@@ -66,6 +71,11 @@ public partial class Details : ContentPage
         {
             await DisplayAlert("File già scaricato", "", "Ok");
         }
+#endif
+
+        //string folderPath = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "NasaViewer");
+
+
     }
 
 
