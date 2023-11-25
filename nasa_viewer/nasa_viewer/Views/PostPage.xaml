@@ -65,11 +65,11 @@
                                         Padding="2,1"
                                         ZIndex="1"/>
 
-                                            <Image
-                                        Grid.Row="1"
-                                        Grid.ColumnSpan="5"
-                                        Source="dotnet_bot.png"
-                                        Aspect="AspectFill"/>
+                                            <local:AsyncImage
+                                                Grid.Row="1"
+                                                Grid.ColumnSpan="5"
+                                                ImageUrl="{Binding Url}"
+                                                Aspect="AspectFill"/>
 
                                             <Label Text="{Binding Date}"
                                         Grid.Row="2"
