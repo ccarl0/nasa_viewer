@@ -1,18 +1,9 @@
-using Android.Content;
-using Android.Provider;
-using AndroidX.Core.App;
-using AndroidX.Core.Content;
-using CommunityToolkit.Maui.Alerts;
-using CommunityToolkit.Maui.Storage;
-using Google;
-using Plugin.Permissions;
 using nasa_viewer.Models;
 using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
-using static Android.Manifest;
 
-namespace sdv.Views;
+namespace nasa_viewer.Views;
 
 public partial class Details : ContentPage
 {
@@ -43,7 +34,7 @@ public partial class Details : ContentPage
 
         string sanitizedFileName = SanitizeFileName(name);
 
-        string folderPath = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "NasaViewer");
+        string folderPath = Path.Combine(Microsoft.Maui.Controls.PlatformConfiguration.Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "NasaViewer");
 
         if (!Directory.Exists(folderPath))
         {
