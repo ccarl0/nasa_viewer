@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using nasa_viewer.Models;
+using nasa_viewer.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +62,13 @@ namespace nasa_viewer.ViewModels
                 client.Dispose();
                 IsRefreshing = false;
             }
+        }
+
+
+        [RelayCommand]
+        async Task PushDetailPage(NasaAPODRoot APODRoot)
+        {
+            await App.Current.MainPage.Navigation.PushAsync(new Details(APODRoot));
         }
     }
 }
