@@ -24,7 +24,7 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <Button Text="Update" Command="{Binding UpdateFeedCommand}"/>
+                    <!--<Button Text="Update" Command="{Binding UpdateFeedCommand}"/>-->
 
                     <ScrollView Grid.Row="2">
                         <Grid>
