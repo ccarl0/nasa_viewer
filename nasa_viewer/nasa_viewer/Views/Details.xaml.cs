@@ -1,9 +1,7 @@
-using CommunityToolkit.Maui.Storage;
 using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Storage;
 using nasa_viewer.Models;
-using System.Net;
 using System.Text.RegularExpressions;
-using System.Threading;
 
 namespace nasa_viewer.Views;
 
@@ -31,9 +29,8 @@ public partial class Details : ContentPage
         Cr.Text = nasaAPODRoot.Copyright;
     }
 
-    private async Task DoubleTapAsync(object sender, TappedEventArgs e)
+    private async void DoubleTapAsync(object sender, TappedEventArgs e)
     {
-
         string sanitizedFileName = SanitizeFileName(name);
 
 #if __ANDROID__

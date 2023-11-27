@@ -40,9 +40,18 @@
                HeightRequest="230"
                Margin="5"
                Aspect="AspectFill"
-               Source="dotnet_bot.png"
-            />
+               Source="dotnet_bot.png">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="DoubleTapAsync"
+  NumberOfTapsRequired="2" />
+                </Image.GestureRecognizers>
 
+            </Image>
+                   
+
+
+            
+            
             <Label x:Name="Descr"
                Grid.Row="3"
                Grid.ColumnSpan="2"
