@@ -19,7 +19,11 @@ namespace nasa_viewer.ViewModels
         [ObservableProperty]
         public bool isRefreshing;
 
-      
+        public PostViewModel()
+        {
+            UpdateFeedAsync();
+        }
+
         [RelayCommand]
         async Task UpdateFeedAsync()
         {
