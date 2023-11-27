@@ -17,6 +17,7 @@ namespace nasa_viewer
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("Roboto-Black.ttf", "Roboto");
                 });
 
 #if DEBUG
