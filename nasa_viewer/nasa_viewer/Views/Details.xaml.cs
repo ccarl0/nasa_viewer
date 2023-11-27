@@ -12,6 +12,8 @@ public partial class Details : ContentPage
     string url;
     private CancellationToken cancellationToken;
 
+    
+
     public Details(NasaAPODRoot nasaAPODRoot)
     {
         InitializeComponent();
@@ -31,14 +33,16 @@ public partial class Details : ContentPage
 
     private async void DoubleTapAsync(object sender, TappedEventArgs e)
     {
+
+        download_animation.IsAnimationEnabled = true;
+        download_animation.IsVisible = true;
+
         string sanitizedFileName = SanitizeFileName(name);
 
 #if __ANDROID__
-string folderPath = Path.Combine(
-    Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath,
-    "NasaViewer");
+string folderPath = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath, "NasaViewer");
 
-    if (!Directory.Exists(folderPath))
+        if (!Directory.Exists(folderPath))
         {
             Directory.CreateDirectory(folderPath);
         }
@@ -49,16 +53,23 @@ string folderPath = Path.Combine(
         {
             try
             {
+                
+
                 using (HttpClient client = new HttpClient())
                 {
                     byte[] imageBytes = await client.GetByteArrayAsync(new Uri(url));
                     File.WriteAllBytes(imagePath, imageBytes);
                 }
+                
+                download_animation.IsAnimationEnabled = false;
+                download_animation.IsVisible = false;
                 await Toast.Make($"File Scaricato!").Show(cancellationToken);
 
             }
             catch (Exception)
             {
+                download_animation.IsAnimationEnabled = false;
+                download_animation.IsVisible = false;
                 await Toast.Make($"File non scaricato!").Show(cancellationToken);
                 throw;
             }
@@ -66,6 +77,8 @@ string folderPath = Path.Combine(
 
         else
         {
+            download_animation.IsAnimationEnabled = false;
+            download_animation.IsVisible = false;
             await DisplayAlert("File già scaricato", "", "Ok");
         }
 #endif
