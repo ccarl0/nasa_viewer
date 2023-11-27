@@ -17,7 +17,7 @@ namespace nasa_viewer.ViewModels
         List<NasaAPODRoot> nasaAPODs;
 
         [ObservableProperty]
-        public bool isRefreshing;
+        public bool isRefreshing = false;
 
         public PostViewModel()
         {
@@ -56,15 +56,17 @@ namespace nasa_viewer.ViewModels
                     nasaAPODSBuffer.Add(JsonSerializer.Deserialize<NasaAPODRoot>(res));
                     NasaAPODs = nasaAPODSBuffer;
                 }
+
             }
             catch (Exception e)
             {
-                await App.Current.MainPage.DisplayAlert("Error - NASA - APOD", e.Message, "Ok");
+                await App.Current.MainPage.DisplayAlert("Error - NASA API", e.Message, "Ok");
             }
             finally
             {
                 client.Dispose();
                 IsRefreshing = false;
+                //await App.Current.MainPage.DisplayAlert("Feed UPDATE", "OK", "OK");
             }
         }
 

@@ -13,20 +13,14 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <FlexLayout Direction="Column" TranslationY="-50">
-            <ScrollView>
-                <Grid Padding="0">
-                    <Grid.ColumnDefinitions>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="130"></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                        <RowDefinition></RowDefinition>
-                    </Grid.RowDefinitions>
+        <!--<FlexLayout Direction="Column" TranslationY="-50">-->
+            
+                
 
                     <!--<Button Text="Update" Command="{Binding UpdateFeedCommand}"/>-->
+                    <RefreshView Command="{Binding UpdateFeedCommand}" IsRefreshing="{Binding IsRefreshing}">
 
-                    <ScrollView Grid.Row="2">
+                        <ScrollView Grid.Row="2">
                         <Grid>
                             <CollectionView ItemsSource="{Binding NasaAPODs}">
                                 <CollectionView.ItemsLayout>
@@ -90,8 +84,9 @@
                             </CollectionView>
                         </Grid>
                     </ScrollView>
-                </Grid>
-            </ScrollView>
-        </FlexLayout>
+                    </RefreshView>
+
+                
+        <!--</FlexLayout>-->
     </ContentPage.Content>
 </ContentPage>
