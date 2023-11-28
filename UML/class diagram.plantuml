@@ -1,0 +1,35 @@
+@startuml
+
+class NasaAPODModel {
+  - Copyright: string
+  - Date: string
+  - Explanation: string
+  - Hdurl: string
+  - MediaType: string
+  - ServiceVersion: string
+  - Title: string
+  - Url: string
+}
+
+class ViewModel {
+  - nasaAPODs: List<NasaAPODRoot>
+  - isRefreshing: bool
+  
+  + UpdateFeedAsync(): void
+  + PushDetailPage(): void
+}
+
+class View {
+  - fileSaver: IFileSaver
+  - name: string
+  - url: string
+  - cancellationToken: CancellationToken
+  
+  + DoubleTapAsync(): void
+  + CleanFileName(): string
+}
+
+NasaAPODModel -- ViewModel
+NasaAPODModel -- View 
+
+@enduml
