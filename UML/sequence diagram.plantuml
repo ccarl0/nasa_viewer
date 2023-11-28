@@ -4,20 +4,28 @@ participant NasaAPODModel
 participant ViewModel
 participant View
 
-
+== Blocco RefreshPage ==
+group RefreshSequence
     View -> ViewModel: RefreshAsync()
     ViewModel -> NasaAPODModel: Richiesta dati
     NasaAPODModel --> ViewModel: Dati ricevuti
     ViewModel -> View: UpdateFeedAsync()
     View --> ViewModel: Feed Aggiornato
+end
 
+== Blocco DetailPage visualization ==
+group DetailPageSequence
     View -> ViewModel: ImageTapAsync()
     ViewModel -> NasaAPODModel: Richiesta dati
     NasaAPODModel --> ViewModel: Dati ricevuti
     ViewModel -> View: PushDetailPage()
+end
 
+== Blocco ImageDownload ==
+group ImageDownloadSequence
     View -> ViewModel: DoubleTapAsync()
     ViewModel -> NasaAPODModel: Richiesta dati
     NasaAPODModel --> ViewModel: Dati ricevuti
     ViewModel -> ViewModel: CleanFileName()
     ViewModel -> ViewModel: Immagine scaricata
+end
