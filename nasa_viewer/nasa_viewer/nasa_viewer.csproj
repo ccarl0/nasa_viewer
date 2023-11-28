@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>nasa_viewer</ApplicationTitle>
+		<ApplicationTitle>NASA Viewr</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.nasa_viewer</ApplicationId>
@@ -40,10 +40,11 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiIcon Include="Resources\AppIcon\nasa_seal.svg" />
+		<!--<MauiSplashScreen Include="Resources\Splash\nasa_seal.svg" />-->
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiSplashScreen Include="Resources\Splash\nasa_seal.svg" Color="#0f508e" BaseSize="128,128" />
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
@@ -57,7 +58,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <!--<None Remove="Resources\AppIcon\nasa_seal.svg" />-->
 	  <None Remove="Resources\Fonts\Roboto-Black.ttf" />
+	  <!--<None Remove="Resources\Splash\nasa_seal.svg" />-->
 	</ItemGroup>
 
 	<ItemGroup>
@@ -77,6 +80,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Update="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg"/>
 	  <None Update="Views\Details.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </None>
