@@ -1,0 +1,11 @@
+Title: Sequence diagram nasa viewer
+
+participant NasaAPODModel
+participant ViewModel
+participant View
+
+View -> ViewModel: DoubleTapAsync()
+ViewModel -> NasaAPODModel: Richiesta dati
+NasaAPODModel --> ViewModel: Dati ricevuti
+ViewModel -> View: UpdateFeedAsync()
+View --> ViewModel: Feed Aggiornato

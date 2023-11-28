@@ -1,5 +1,7 @@
 @startuml
 
+Title: Class diagram nasa viewer
+
 class NasaAPODModel {
   - Copyright: string
   - Date: string
