@@ -1,14 +1,17 @@
 @startuml
 skinparam actorStyle awesome
 left to right direction
-actor "Nasa API" as API
-actor "Utente" as user
-rectangle {
-  usecase "apri app" as UC1
-  usecase "Aggiorna dati" as UC2
+
+actor Utente as user
+actor API as api
+
+rectangle "Applicazione" {
+  user -- (Apri App)
+  (Apri App) --> (Visualizza Foto)
+  (Seleziona Foto) --> (Vedi Informazioni)
+  (Visualizza Foto) --> (Seleziona Foto)
+
+  (Seleziona Foto) --> (Doppio Tap Salva Foto)
 }
-
-user --> UC1
-API --> UC2
-
-@enduml 
+(Visualizza Foto)--api
+@enduml
