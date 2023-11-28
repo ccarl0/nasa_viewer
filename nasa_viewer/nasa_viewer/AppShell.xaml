@@ -9,7 +9,6 @@
     Title="nasa_viewer">
 
     <ShellContent
-        Title="Home"
         ContentTemplate="{DataTemplate views:PostPage}"
         Route="MainPage" />
 

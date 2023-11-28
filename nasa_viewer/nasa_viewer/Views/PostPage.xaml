@@ -5,8 +5,7 @@
              xmlns:views="clr-namespace:nasa_viewer.Views"
              xmlns:viewmodels="clr-namespace:nasa_viewer.ViewModels"
              x:Class="nasa_viewer.Views.PostPage"
-             x:DataType="viewmodels:PostViewModel"
-             Title="NASA VIEWER">
+             x:DataType="viewmodels:PostViewModel">
 
     <ContentPage.BindingContext>
         <viewmodels:PostViewModel/>
@@ -19,7 +18,6 @@
 
                     <!--<Button Text="Update" Command="{Binding UpdateFeedCommand}"/>-->
                     <RefreshView Command="{Binding UpdateFeedCommand}" IsRefreshing="{Binding IsRefreshing}">
-
                         <ScrollView Grid.Row="2">
                         <Grid>
                             <CollectionView ItemsSource="{Binding NasaAPODs}">
