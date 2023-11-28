@@ -27,7 +27,13 @@ class View {
   - url: string
   - cancellationToken: CancellationToken
   
+  'va a richiamare l'update
+  + RefreshAsync(): void
+  'scarica l'immagine
   + DoubleTapAsync(): void
+  'entra nella detail page
+  + ImageTapAsync(): void
+  'gestisce caratteri nello scaricamento
   + CleanFileName(): string
 }
 
